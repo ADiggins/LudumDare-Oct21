@@ -20,9 +20,12 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 655b8f24a329f8d44a4c71bdbf1c691f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _CutoutThresh: 0.785
+    - _Transparency: 0.946
+    m_Colors:
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0.4745098}
   m_BuildTextureStacks: []
