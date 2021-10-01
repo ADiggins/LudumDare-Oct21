@@ -6,6 +6,7 @@ Shader "Unlit/exShader/benis"
         _MainTex ("Texture", 2D) = "white" {}
         _TintColor("Tint Colour", color) = (1,1,1,1)
         _Transparency("Transparency", Range(0.0, 1.0)) = 0.1
+        _CutoutThresh("Cutout Threshold", range(0.0, 1.0)) = 0.2
     }
     SubShader
     {
@@ -39,6 +40,7 @@ Shader "Unlit/exShader/benis"
             float4 _MainTex_ST;
             float4 _TintColor;
             float _Transparency;
+            float _CutoutThresh;
 
             v2f vert (appdata v)
             {
@@ -56,6 +58,7 @@ Shader "Unlit/exShader/benis"
                 // that means you can just get a white box easily
                 fixed4 col = tex2D(_MainTex, i.uv) * _TintColor;
                 col.a = _Transparency;
+                clip(col.r - _CutoutThresh);
                 return col;
             }
             ENDCG
