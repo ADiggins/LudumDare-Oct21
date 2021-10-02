@@ -28,7 +28,7 @@ namespace Player
             if (Physics.Raycast(Head.transform.position, Vector3.forward, out hit))
             {
                 Gun.transform.LookAt(hit.point);
-                Debug.DrawRay(Head.transform.position, Vector3.forward, Color.black);
+                Debug.DrawRay(Head.transform.position, new Vector3(0,0,30 ), Color.black);
             }
         }
 
