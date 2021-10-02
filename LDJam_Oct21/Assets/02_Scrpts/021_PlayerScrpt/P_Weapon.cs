@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class temo : MonoBehaviour
+public class P_Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

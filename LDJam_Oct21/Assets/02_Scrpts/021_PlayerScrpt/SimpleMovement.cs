@@ -14,8 +14,7 @@ public class SimpleMovement : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 	}
-
-	// Start is called before the first frame update
+	
 	void Start()
     {
 		Cursor.lockState = CursorLockMode.Locked;
