@@ -10,13 +10,14 @@ namespace Player
         public float moveSpeed = 9f, sensitivity = 100f;
         private float horizontalInput, verticalInput;
         private Vector3 forwardVector, sideVector, upVector;
-        private float camX, camXMin = -0.10f, camXMax = 0.10f;
+        private float camX, camXMin = -0.40f, camXMax = 0.60f;
         private float jumpPower = 10, slidePower;
         [SerializeField] private GameObject Head;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private bool grounded;
         private int jumpNumber;
         private float slideEnd;
+        private int fastLerp = 4;
 
 
         void Start()
@@ -35,7 +36,7 @@ namespace Player
 
             float camRot = Camera.main.transform.rotation.x;
             camX = -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-            // camera lock goes here
+           
             #endregion   
         
             #region MovementControl
@@ -65,10 +66,19 @@ namespace Player
 
             #region CameraControl
             //rotates player based on camera
-            rb.transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0);
+            rb.transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0, Space.World);
         
             //camera verticality
-            Head.transform.Rotate(camX, 0, 0);
+            Head.transform.Rotate(camX, 0, 0, Space.Self);
+            if (camRot > camXMax)
+            {
+                Head.transform.rotation = Quaternion.Slerp(Head.transform.rotation, Quaternion.Euler(camXMax,0,0), Time.deltaTime * fastLerp);
+            }
+
+            if (camRot < camXMin)
+            {
+                Head.transform.rotation = Quaternion.Slerp(Head.transform.rotation, Quaternion.Euler(camXMin,0,0), Time.deltaTime * fastLerp);
+            }
             #endregion
         }
     
