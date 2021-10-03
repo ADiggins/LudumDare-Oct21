@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CaptureZone : MonoBehaviour
 {
+	public ElementManager.ElementTypes myType;
 	public float timeToCapture = 5;
 	
 	public bool captured = false;
+	public GameObject enemyObj;
+	public List<Transform> spawnLocations;
+	public float burstDelay = 5, burstCapacity = 3, burstRange = 1, burstSync;
 
 	private ParticleSystem ps;
 	private Material highlighter;
@@ -33,10 +37,10 @@ public class CaptureZone : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		print("Something entered");
 		if (other.transform.tag == "Player" && !captured)
 		{
 			captureSync = Time.time + timeToCapture;
+			burstSync = Time.time + burstDelay;
 		}
 	}
 
@@ -47,8 +51,11 @@ public class CaptureZone : MonoBehaviour
 			intensity = (timeToCapture - (captureSync - Time.time)) / timeToCapture;
 			if (Time.time > captureSync)
 			{
-				ps.Play();
-				captured = true;
+				LevelComplete();
+			}
+			if (Time.time > burstSync)
+			{
+				burstSync = Time.time + burstDelay;
 			}
 		}
 	}
@@ -58,6 +65,45 @@ public class CaptureZone : MonoBehaviour
 		if (other.transform.tag == "Player" && !captured)
 		{
 			intensity = 0;
+		}
+	}
+
+	public void LevelComplete()
+	{
+		ps.Play();
+		captured = true;
+		switch(myType)
+		{
+			case ElementManager.ElementTypes.Water:
+				GameManager.Instance.completedWater = true;
+				break;
+			case ElementManager.ElementTypes.Nature:
+				GameManager.Instance.completedNature = true;
+				break;
+			case ElementManager.ElementTypes.Fire:
+				GameManager.Instance.completedFire = true;
+				break;
+			case ElementManager.ElementTypes.Earth:
+				GameManager.Instance.completedEarth = true;
+				break;
+			case ElementManager.ElementTypes.Metal:
+				GameManager.Instance.completedMetal = true;
+				break;
+		}
+		Invoke("LoadMainScene", 3.0f);
+	}
+
+	void LoadMainScene()
+	{
+		GameManager.Instance.LoadSpecifiedScene(0);
+	}
+	
+	void TriggerDefenders()
+	{
+		for (int iter = 0; iter < burstCapacity + Random.Range(-burstRange, burstRange); iter++)
+		{
+			Transform newPosition = spawnLocations[Random.Range(0, spawnLocations.Capacity)];
+			Instantiate(enemyObj, newPosition.position, transform.rotation);
 		}
 	}
 }

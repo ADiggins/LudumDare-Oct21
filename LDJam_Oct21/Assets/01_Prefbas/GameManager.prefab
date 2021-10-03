@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2491500286669408861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2491500286669408863}
+  - component: {fileID: 2491500286669408860}
+  - component: {fileID: 2144376978}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2491500286669408863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491500286669408861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.584585, y: 2.508991, z: 24.823366}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2491500286669408860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491500286669408861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42383ab9519dec4099a443cc7702996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireMat: {fileID: 2100000, guid: 8e559dc3a5c0dce4baf35ffb67a0da60, type: 2}
+  EarthMat: {fileID: 2100000, guid: 0b8f8bae05a40564f9284865409aa998, type: 2}
+  MetalMat: {fileID: 2100000, guid: 930611ff262fa0d42afc8e255ad1872e, type: 2}
+  WaterMat: {fileID: 2100000, guid: 36dac21c6b17ba143bf0259a16ee4f75, type: 2}
+  NatureMat: {fileID: 2100000, guid: c0c3b623ced338c45b112d60895fb8a1, type: 2}
+--- !u!114 &2144376978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491500286669408861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e873effb2b20240b1a978229472cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completedWater: 0
+  completedNature: 0
+  completedFire: 0
+  completedEarth: 0
+  completedMetal: 0
