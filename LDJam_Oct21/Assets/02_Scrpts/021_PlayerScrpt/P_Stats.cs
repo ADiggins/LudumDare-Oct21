@@ -56,4 +56,12 @@ public class P_Stats : MonoBehaviour
             StartCoroutine(Healing());
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Zone"))
+        {
+            StopCoroutine(Healing());
+        }
+    }
 }

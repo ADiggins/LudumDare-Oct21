@@ -15,7 +15,6 @@ namespace Player
         [SerializeField] private GameObject Head;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private bool grounded;
-        private int jumpNumber;
         private float slideEnd;
         private int fastLerp = 4;
 
@@ -24,7 +23,6 @@ namespace Player
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            jumpNumber = 2;
         }
 
         void Update()
@@ -34,7 +32,8 @@ namespace Player
             verticalInput = Input.GetAxis("Vertical");
             horizontalInput = Input.GetAxis("Horizontal");
 
-            float camRot = Camera.main.transform.rotation.x;
+
+            var camRotation = Camera.main.transform.rotation;
             camX = -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
            
             #endregion   
@@ -53,11 +52,10 @@ namespace Player
             #endregion
 
             #region Jump
-            if (Input.GetKeyDown(KeyCode.Space) && jumpNumber > 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 StopCoroutine(nameof(Slide));
                 upVector = Vector3.zero;
-                jumpNumber--;
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 StartCoroutine(nameof(Slide));
             }
@@ -69,16 +67,10 @@ namespace Player
             rb.transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0, Space.World);
         
             //camera verticality
+            
             Head.transform.Rotate(camX, 0, 0, Space.Self);
-            if (camRot > camXMax)
-            {
-                Head.transform.rotation = Quaternion.Slerp(Head.transform.rotation, Quaternion.Euler(camXMax,0,0), Time.deltaTime * fastLerp);
-            }
+            
 
-            if (camRot < camXMin)
-            {
-                Head.transform.rotation = Quaternion.Slerp(Head.transform.rotation, Quaternion.Euler(camXMin,0,0), Time.deltaTime * fastLerp);
-            }
             #endregion
         }
     
@@ -100,16 +92,14 @@ namespace Player
             if (!other.gameObject.CompareTag("Ground")) return;
             
             grounded = true;
-            jumpNumber = 2;
-
         }
         #endregion
         
         private IEnumerator Slide()
         {
-            while (slidePower > 1)
+            while (slidePower > 0)
             {
-                slidePower -= 0.2f;
+                slidePower -= 0.4f;
                 yield return new WaitForFixedUpdate();
             }
             yield return null;

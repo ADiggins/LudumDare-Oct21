@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
+using Random = System.Random;
 
 namespace Player
 {
@@ -10,6 +13,8 @@ namespace Player
         private Rigidbody rb;
         private int bulletVelocity = 100;
         private float spawnTime, deathTime;
+        private GameObject ParticlePuff;
+        
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
@@ -26,6 +31,18 @@ namespace Player
             // kills on miss
             if (Time.time > deathTime)
                 Destroy(gameObject);
+        }
+
+        private void OnCollisionExit(Collision other)
+        {
+            StartCoroutine(Death());
+        }
+
+        private IEnumerator Death()
+        {
+            float die = UnityEngine.Random.Range(0, 0.3f);
+            yield return new WaitForSeconds(die);
+            Destroy(gameObject);
         }
     }
 }

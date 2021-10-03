@@ -112,7 +112,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8828399598757202033}
-  - {fileID: 3889140626597420564}
   - {fileID: 248470540781281647}
   - {fileID: 7026980198486183417}
   - {fileID: 2527782312518982840}
@@ -166,7 +165,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 248470540089600688}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &248470540781281554
 MeshFilter:
@@ -277,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   sensitivity: 100
+  Head: {fileID: 0}
   rb: {fileID: 248470540089600691}
   grounded: 0
 --- !u!114 &3442899417112685326
@@ -296,7 +296,7 @@ MonoBehaviour:
   rateOfFire: 0.15
   shotGap: 0
   bulletNoise: {fileID: 6853140818707490858}
-  Player: {fileID: 0}
+  Head: {fileID: 0}
   Gun: {fileID: 0}
 --- !u!1 &3889140626188652170
 GameObject:
@@ -355,11 +355,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3889140626597420560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.549, y: 0, z: 0.727}
+  m_LocalPosition: {x: 0.549, y: -0.5, z: 0.727}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 3889140626188652169}
-  m_Father: {fileID: 248470540089600688}
+  m_Father: {fileID: 2527782312518982840}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3889140626597420565
@@ -452,8 +452,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 248470539173484745}
+  - {fileID: 3889140626597420564}
   m_Father: {fileID: 248470540089600688}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8391535300235918534
 GameObject:
@@ -484,7 +485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 248470540089600688}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6853140818707490858
 AudioSource:
