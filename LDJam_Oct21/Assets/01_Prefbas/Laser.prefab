@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5423327806223789571}
   - component: {fileID: 5423327806223789570}
   - component: {fileID: 5423327806223789573}
-  m_Layer: 6
+  - component: {fileID: 2325109727748736956}
+  m_Layer: 7
   m_Name: Laser
   m_TagString: EnemyLaser
   m_Icon: {fileID: 0}
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 13
   rotSpeed: 3
+--- !u!135 &2325109727748736956
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423327806223789572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 0, z: 0.84}
 --- !u!1001 &5423327804744462912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8380157826906577798, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -124,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 36dac21c6b17ba143bf0259a16ee4f75, type: 2}
     - target: {fileID: -6733177361254619370, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Name
@@ -132,19 +146,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2800250516343163423, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8513859187771203891, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8700725330082129686, guid: 82337e823918fe141a70155cb0415bdf, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82337e823918fe141a70155cb0415bdf, type: 3}

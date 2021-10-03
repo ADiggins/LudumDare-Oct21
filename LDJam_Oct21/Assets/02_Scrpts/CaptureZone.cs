@@ -55,6 +55,7 @@ public class CaptureZone : MonoBehaviour
 			}
 			if (Time.time > burstSync)
 			{
+				TriggerDefenders();
 				burstSync = Time.time + burstDelay;
 			}
 		}
@@ -102,8 +103,10 @@ public class CaptureZone : MonoBehaviour
 	{
 		for (int iter = 0; iter < burstCapacity + Random.Range(-burstRange, burstRange); iter++)
 		{
+			GameObject newEnemy = enemyObj;
+			newEnemy.GetComponent<EnemyBehaviour>().myType = myType;
 			Transform newPosition = spawnLocations[Random.Range(0, spawnLocations.Capacity)];
-			Instantiate(enemyObj, newPosition.position, transform.rotation);
+			Instantiate(newEnemy, newPosition.position, transform.rotation);
 		}
 	}
 }

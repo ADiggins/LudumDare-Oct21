@@ -23,6 +23,8 @@ public class EnemyBehaviour : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+		if (target == null)
+			target = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	// Start is called before the first frame update
