@@ -13,7 +13,7 @@ namespace Player
         private Rigidbody rb;
         private int bulletVelocity = 100;
         private float spawnTime, deathTime;
-        private GameObject ParticlePuff;
+        [SerializeField] private GameObject ParticlePuff;
         
         private void Awake()
         {
@@ -33,8 +33,9 @@ namespace Player
                 Destroy(gameObject);
         }
 
-        private void OnCollisionExit(Collision other)
+        private void OnCollisionEnter(Collision other)
         {
+            Instantiate(ParticlePuff);
             StartCoroutine(Death());
         }
 
@@ -42,6 +43,7 @@ namespace Player
         {
             float die = UnityEngine.Random.Range(0, 0.3f);
             yield return new WaitForSeconds(die);
+            Instantiate(ParticlePuff);
             Destroy(gameObject);
         }
     }
