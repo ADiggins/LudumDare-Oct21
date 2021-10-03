@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 248470539173484745}
   - component: {fileID: 248470539173484744}
   - component: {fileID: 248470539173484747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248470540089600688}
   - component: {fileID: 248470540089600691}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 248470540781281554}
   - component: {fileID: 248470540781281645}
   - component: {fileID: 248470540781281644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 8828399598757202033}
   - component: {fileID: 5397340853543535493}
   - component: {fileID: 3442899417112685326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,9 @@ MonoBehaviour:
   Head: {fileID: 6356725942788784577}
   Gun: {fileID: 3889140626597420560}
   shotNum: 0
-  shotVariation: []
+  shotVariation:
+  - 0
+  - 0
   variationMinimiser: 2
   crosshair: {fileID: 0}
   crosshairScaler: 7
@@ -312,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3889140626188652169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet_Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +347,7 @@ GameObject:
   - component: {fileID: 3889140626597420565}
   - component: {fileID: 3889140626597420566}
   - component: {fileID: 3889140626597420567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Temp_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2527782312518982840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7026980198486183417}
   - component: {fileID: 6853140818707490858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet_Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
