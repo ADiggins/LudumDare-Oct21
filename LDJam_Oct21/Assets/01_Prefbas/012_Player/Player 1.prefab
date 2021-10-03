@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   sensitivity: 100
-  Head: {fileID: 0}
+  Head: {fileID: 6356725942788784577}
   rb: {fileID: 248470540089600691}
   grounded: 0
 --- !u!114 &3442899417112685326
@@ -296,8 +296,13 @@ MonoBehaviour:
   rateOfFire: 0.15
   shotGap: 0
   bulletNoise: {fileID: 6853140818707490858}
-  Head: {fileID: 0}
-  Gun: {fileID: 0}
+  Head: {fileID: 6356725942788784577}
+  Gun: {fileID: 3889140626597420560}
+  shotNum: 0
+  shotVariation: []
+  variationMinimiser: 2
+  crosshair: {fileID: 0}
+  crosshairScaler: 7
 --- !u!1 &3889140626188652170
 GameObject:
   m_ObjectHideFlags: 0
