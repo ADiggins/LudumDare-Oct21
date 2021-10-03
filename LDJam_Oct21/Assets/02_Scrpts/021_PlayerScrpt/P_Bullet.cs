@@ -35,6 +35,8 @@ namespace Player
 
         private void OnCollisionEnter(Collision other)
         {
+			if (other.transform.GetComponent<HealthManager>())
+				other.transform.GetComponent<HealthManager>().ChangeHP(-1);
             Instantiate(ParticlePuff, transform.position, Quaternion.identity);
             StartCoroutine(Death());
         }

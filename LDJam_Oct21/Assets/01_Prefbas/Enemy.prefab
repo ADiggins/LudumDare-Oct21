@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2404406040750621967}
   - component: {fileID: 1556179380}
   - component: {fileID: 860337129923807022}
+  - component: {fileID: 8988593353418906924}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -4883,6 +4884,35 @@ Halo:
     serializedVersion: 2
     rgba: 4294967295
   m_Size: 0.8
+--- !u!114 &8988593353418906924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404406040750621963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4b9bf0366918142a8a8129bd5ed54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 3
+  maxHP: 3
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2404406040750621964}
+        m_TargetAssemblyTypeName: EnemyBehaviour, Assembly-CSharp
+        m_MethodName: DestroyEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2404406042073482515
 PrefabInstance:
   m_ObjectHideFlags: 0

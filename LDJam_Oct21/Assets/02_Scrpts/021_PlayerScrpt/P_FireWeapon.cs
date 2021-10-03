@@ -41,7 +41,7 @@ namespace Player
             {
                 //gun looks at where the player is looking
                 Gun.transform.LookAt(hit.point);
-                Debug.Log("hit");
+                //Debug.Log("hit");
             }
             
             //go back to gun's rotation

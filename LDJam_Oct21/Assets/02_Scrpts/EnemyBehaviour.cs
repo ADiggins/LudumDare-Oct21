@@ -128,4 +128,8 @@ public class EnemyBehaviour : MonoBehaviour
 		Instantiate(newLaser, transform.position, transform.rotation);
 	}
 	
+	public void DestroyEnemy()
+	{
+		Destroy(this.gameObject);
+	}
 }

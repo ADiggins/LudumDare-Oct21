@@ -27,6 +27,9 @@ public class LaserBehaviour : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
+		print(collision.transform.name);
+		if (collision.transform.GetComponent<HealthManager>())
+			collision.transform.GetComponent<HealthManager>().ChangeHP(-1);
 		SelfDestruct();
 	}
 
