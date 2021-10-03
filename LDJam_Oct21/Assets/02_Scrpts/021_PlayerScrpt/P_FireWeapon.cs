@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
+
 using Random = System.Random;
 using UnityEngine.UI;
 

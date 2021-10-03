@@ -108,10 +108,10 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		myMat = ElementManager.Instance.GetMaterialForType(myType);
 		ren.material = myMat;
-		UnityEditor.SerializedObject halo = new UnityEditor.SerializedObject(gameObject.GetComponent("Halo"));
-		print(halo.FindProperty("m_Color").colorValue);
-		halo.FindProperty("m_Color").colorValue = myMat.color;
-		print(halo.FindProperty("m_Color").colorValue);
+		//UnityEditor.SerializedObject halo = new UnityEditor.SerializedObject(gameObject.GetComponent("Halo"));
+		//print(halo.FindProperty("m_Color").colorValue);
+		//halo.FindProperty("m_Color").colorValue = myMat.color;
+		//print(halo.FindProperty("m_Color").colorValue);
 		if (GetComponent<ParticleSystem>() != null)
 			GetComponent<ParticleSystem>().GetComponent<Renderer>().material = myMat;
 	}
