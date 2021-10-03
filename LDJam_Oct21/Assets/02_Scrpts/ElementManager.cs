@@ -11,22 +11,22 @@ public class ElementManager : MonoBehaviour
 		Instance = this;
 	}
 
-	public enum EnemyTypes { Fire, Earth, Metal, Water, Nature };
+	public enum ElementTypes { Fire, Earth, Metal, Water, Nature };
 	public Material FireMat, EarthMat, MetalMat, WaterMat, NatureMat;
 
-	public Material GetMaterialForType(EnemyTypes thisType)
+	public Material GetMaterialForType(ElementTypes thisType)
 	{
 		switch (thisType)
 		{
-			case EnemyTypes.Fire:
+			case ElementTypes.Fire:
 				return FireMat;
-			case EnemyTypes.Earth:
+			case ElementTypes.Earth:
 				return EarthMat;
-			case EnemyTypes.Metal:
+			case ElementTypes.Metal:
 				return MetalMat;
-			case EnemyTypes.Water:
+			case ElementTypes.Water:
 				return WaterMat;
-			case EnemyTypes.Nature:
+			case ElementTypes.Nature:
 				return NatureMat;
 		}
 		return null;

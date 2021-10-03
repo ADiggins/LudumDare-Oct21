@@ -6,6 +6,7 @@ public class LaserBehaviour : MonoBehaviour
 {
 	public float moveSpeed = 10f, rotSpeed = 90f;
 	private Rigidbody rb;
+	//private MeshRenderer myMesh;
 
 	private void Awake()
 	{
@@ -32,5 +33,10 @@ public class LaserBehaviour : MonoBehaviour
 	void SelfDestruct()
 	{
 		Destroy(this.gameObject);
+	}
+
+	public void AssignColour(Material input)
+	{
+		GetComponentInChildren<MeshRenderer>().material = input;
 	}
 }

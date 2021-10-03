@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-	public ElementManager.EnemyTypes myType;
+	public ElementManager.ElementTypes myType;
 	public GameObject target;
 	public bool attacking = false;
 	public float attackRange = 20, passiveRange = 10;
@@ -18,6 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
 	private Vector3 lookVector;
 	private Rigidbody rb;
 	private Material myMat;
+	private Behaviour myHalo;
 
 	private void Awake()
 	{
@@ -36,9 +37,14 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		attacking = Vector3.Distance(transform.position, target.transform.position) < attackRange;
+		//attacking = Vector3.Distance(transform.position, target.transform.position) < attackRange;
         if (attacking)
 		{
+			if (Vector3.Distance(transform.position, target.transform.position) > attackRange)
+			{
+				attacking = false;
+				return;
+			}
 			//Initiate attacking behaviour
 			lookVector = Vector3.Lerp(lookVector, target.transform.position - transform.position, attackTurnSpeed * Time.deltaTime);
 			transform.rotation = Quaternion.LookRotation(lookVector);
@@ -52,8 +58,13 @@ public class EnemyBehaviour : MonoBehaviour
 		{
 			//Movement vector represents direction I am currently travelling. It is constantly lerping toward the destination
 			//If I'm close to the destination, pick a new destination
-
 			//movementVector = (destination - transform.position).normalized;
+			if (Vector3.Distance(transform.position, target.transform.position) < attackRange)
+			{
+				attacking = true;
+				attackSync = Time.time + attackDelay;
+				return;
+			}
 			lookVector = Vector3.Lerp(lookVector, destination - transform.position, passiveTurnSpeed * Time.deltaTime);
 			lookVector.Normalize();
 			transform.rotation = Quaternion.LookRotation(lookVector);
@@ -95,6 +106,10 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		myMat = ElementManager.Instance.GetMaterialForType(myType);
 		ren.material = myMat;
+		UnityEditor.SerializedObject halo = new UnityEditor.SerializedObject(gameObject.GetComponent("Halo"));
+		print(halo.FindProperty("m_Color").colorValue);
+		halo.FindProperty("m_Color").colorValue = myMat.color;
+		print(halo.FindProperty("m_Color").colorValue);
 		if (GetComponent<ParticleSystem>() != null)
 			GetComponent<ParticleSystem>().GetComponent<Renderer>().material = myMat;
 	}
@@ -106,8 +121,9 @@ public class EnemyBehaviour : MonoBehaviour
 
 	void LaunchAttack()
 	{
-		print("firing");
-		Instantiate(laserObj, transform.position, transform.rotation);
+		GameObject newLaser = laserObj;
+		newLaser.GetComponent<LaserBehaviour>().AssignColour(myMat);
+		Instantiate(newLaser, transform.position, transform.rotation);
 	}
 	
 }
